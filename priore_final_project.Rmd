@@ -1,24 +1,35 @@
 ---
 title: "Final Project"
 subtitle: "Data Science for Biologists, Spring 2021"
-author: "Your name goes here"
-output: html_document
+author: "Ashley Priore"
+output: 
+  html_document:
+    theme: cerulean
+    highlight: tango
 editor_options: 
   chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
 # DON'T CHANGE THE NEXT LINE, except to add NEW options if you have any.
-knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo = TRUE, include = TRUE)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo = TRUE, include = TRUE, fig.width=6, fig.height=4)
 
 # Load all libraries you use HERE:
+library(tidyverse)
 ```
 
 <br><br>
 
 ## Introduction
 
+The pizza barstool review dataset comprises customer reviews of many different pizzerias all throughout the USA. This dataset provides the name of the pizzeria, general aspects regarding location, and customer's reviews based on pricing and overall experience. I chose this dataset because it interested me as I worked in a pizzeria for 5 years! I would like to further explore how different pizzerias are ranked in different areas. The link to this source is [Pizza](%5Bhttps://github.com/rfordatascience/tidytuesday/blob/master/data/2019/2019-10-01/pizza_barstool.csv). (<https://github.com/rfordatascience/tidytuesday/blob/master/data/2019/2019-10-01/pizza_barstool.csv>)
+
 ```{r read-examine-data}
+#reading in dataset
+pizza_barstool <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-01/pizza_barstool.csv")
+
+#briefly viewing dataset
+glimpse(pizza_barstool)
 
 ```
 
@@ -30,10 +41,13 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo = TRUE, include = TRUE)
 
 ### Methods
 
+```{r}
+
+```
+
 ### Answer
 
 Replace this text with your answer to your question.
-
 
 <br><br>
 
@@ -42,6 +56,10 @@ Replace this text with your answer to your question.
 #### REPLACE TEXT WITH YOUR QUESTION. Your question should literally be a level-4 header.
 
 ### Methods
+
+```{r}
+
+```
 
 ### Answer
 
@@ -55,10 +73,13 @@ Replace this text with your answer to your question.
 
 ### Methods
 
+```{r}
+
+```
+
 ### Answer
 
 Replace this text with your answer to your question.
-
 
 <br><br>
 
@@ -67,6 +88,10 @@ Replace this text with your answer to your question.
 #### REPLACE TEXT WITH YOUR QUESTION. Your question should literally be a level-4 header.
 
 ### Methods
+
+```{r}
+
+```
 
 ### Answer
 
