@@ -66,13 +66,13 @@ The number of pizzerias surveyed that are within each price level are as follows
 ### Methods
 
 ```{r question two}
-pizza_barstool%>%
-  ggplot()+
-  aes(x=latitude, y=longitude)+
-  geom_point()+
-  geom_smooth(method="lm", se= FALSE, color="plum1")+
-  labs(x= "Latitude", y= "Longitude")+
-  theme_bw()
+pizza_barstool%>% #giving this dataset to next function
+  ggplot()+ #about to make a plot
+  aes(x=latitude, y=longitude)+ #specifying x and y axis 
+  geom_point()+ #specifying type of plot
+  geom_smooth(method="lm", se= FALSE, color="plum1")+ #adding in smooth trendline and specifying color
+  labs(x= "Latitude", y= "Longitude")+ #appropriate labeling 
+  theme_bw() #indicating theme 
 
 ```
 
@@ -84,17 +84,25 @@ There is a positive relationship between latitude and longitude of the given piz
 
 ## Question 3
 
-#### REPLACE TEXT WITH YOUR QUESTION. Your question should literally be a level-4 header.
+#### Does a price level of 2 have a higher total critic score compared to a price level of 1?
 
 ### Methods
 
 ```{r question three}
-
+pizza_barstool%>% #giving this dataset to next function
+  rename(critic_total_score= review_stats_critic_total_score)%>% #renaming column for easier use
+  filter(price_level %in% c("1","2"))%>% #keeping only price levels of 1 and 2 ******************
+  ggplot()+ #about to make a plot
+  aes(x=price_level, y=critic_total_score)+ #specifying x and y axis
+  geom_col(fill= "mediumspringgreen")+ #specifying type of plot and fill
+  labs(x= "Price Level", y= "Critic Total Score")+ #appropriate labeling 
+  theme_light() #indicating theme
+  
 ```
 
 ### Answer
 
-Replace this text with your answer to your question.
+Price level of 2 did have a higher critic total score than compared to price level 1.
 
 <br><br>
 
