@@ -61,17 +61,24 @@ The number of pizzerias surveyed that are within each price level are as follows
 
 ## Question 2
 
-#### REPLACE TEXT WITH YOUR QUESTION. Your question should literally be a level-4 header.
+#### What is the relationship bewteen latitude and longitude of these pizzerias?
 
 ### Methods
 
 ```{r question two}
+pizza_barstool%>%
+  ggplot()+
+  aes(x=latitude, y=longitude)+
+  geom_point()+
+  geom_smooth(method="lm", se= FALSE, color="plum1")+
+  labs(x= "Latitude", y= "Longitude")+
+  theme_bw()
 
 ```
 
 ### Answer
 
-Replace this text with your answer to your question.
+There is a positive relationship between latitude and longitude of the given pizzerias.
 
 <br><br>
 
@@ -81,7 +88,7 @@ Replace this text with your answer to your question.
 
 ### Methods
 
-```{r}
+```{r question three}
 
 ```
 
@@ -97,7 +104,7 @@ Replace this text with your answer to your question.
 
 ### Methods
 
-```{r}
+```{r question four}
 
 ```
 
