@@ -37,17 +37,22 @@ glimpse(pizza_barstool)
 
 ## Question 1
 
-#### REPLACE TEXT WITH YOUR QUESTION. Your question should literally be a level-4 header.
+#### What is the distribution of price levels?
 
 ### Methods
 
-```{r}
-
+```{r question one}
+pizza_barstool%>% #giving this dataset to ggplot
+  ggplot()+ #about to make a plot
+  aes(x=price_level)+ #specifying x axis
+  geom_histogram(bins=4, color= "black", fill="lightsteelblue1")+ #specifying type of plot, bins, color, and fill
+  labs(x= "Price Level")+ #appropriate labeling and price level: 0= no $ (least expensive), 1=$, 2=$$, 3=$$$ (most expensive)
+  theme_minimal() #specifying theme 
 ```
 
 ### Answer
 
-Replace this text with your answer to your question.
+The price level distribution peaks at levels 1 (one dollar sign) and 2 (2 dollar signs) meaning most pizzerias surveyed are in between least expensive and most expensive. This fits the outline of a normal distribution. 
 
 <br><br>
 
