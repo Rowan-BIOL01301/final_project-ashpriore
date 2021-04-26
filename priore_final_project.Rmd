@@ -37,7 +37,7 @@ glimpse(pizza_barstool)
 
 ## Question 1
 
-#### What is the distribution of price levels?
+#### How many pizzerias are within each price level?
 
 ### Methods
 
@@ -45,14 +45,17 @@ glimpse(pizza_barstool)
 pizza_barstool%>% #giving this dataset to ggplot
   ggplot()+ #about to make a plot
   aes(x=price_level)+ #specifying x axis
-  geom_histogram(bins=4, color= "black", fill="lightsteelblue1")+ #specifying type of plot, bins, color, and fill
-  labs(x= "Price Level")+ #appropriate labeling and price level: 0= no $ (least expensive), 1=$, 2=$$, 3=$$$ (most expensive)
+  geom_bar(color= "black", fill="lightsteelblue1")+ #specifying type of plot, bins, color, and fill
+  labs(x= "Price Level")+ #appropriate labeling and price level: 0= no $ (least expensive), 1=$, 2=$$, 3=$$$ (most expensive)+
   theme_minimal() #specifying theme 
+
+pizza_barstool%>%
+  count(price_level)
 ```
 
 ### Answer
 
-The price level distribution peaks at levels 1 (one dollar sign) and 2 (2 dollar signs) meaning most pizzerias surveyed are in between least expensive and most expensive. This fits the outline of a normal distribution. 
+The number of pizzerias surveyed that are within each price level are as follows: price level 0 (least expensive)= 21, price level 1= 216, price level 2= 218, and price level 3 (most expensive)= 8. 
 
 <br><br>
 
@@ -62,7 +65,7 @@ The price level distribution peaks at levels 1 (one dollar sign) and 2 (2 dollar
 
 ### Methods
 
-```{r}
+```{r question two}
 
 ```
 
