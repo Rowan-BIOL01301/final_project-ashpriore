@@ -108,14 +108,20 @@ Price level of 2 did have a higher critic total score than compared to price lev
 
 ## Question 4
 
-#### REPLACE TEXT WITH YOUR QUESTION. Your question should literally be a level-4 header.
+#### What is the distribution of Dave's total score?
 
 ### Methods
 
 ```{r question four}
-
+pizza_barstool%>% #giving this dataset to next function
+  rename(dave_total_score= review_stats_dave_total_score)%>% #renaming column for easier use
+  ggplot()+ #about to make a plot
+  aes(x=dave_total_score)+ #specifying x axis
+  geom_histogram(fill= "mediumspringgreen", color= "black")+ #specifying type of plot and fill and color
+  labs(x= "Dave's Total Score", y= "Count")+ #appropriate labeling 
+  theme_bw() #indicating theme
 ```
 
 ### Answer
 
-Replace this text with your answer to your question.
+The distribution of Dave's total score is skewed to the right.
