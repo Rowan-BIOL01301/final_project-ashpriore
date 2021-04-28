@@ -22,7 +22,7 @@ library(tidyverse)
 
 ## Introduction
 
-The pizza barstool review dataset comprises customer reviews of many different pizzerias all throughout the USA. This dataset provides the name of the pizzeria, general aspects regarding location, and customer's reviews based on pricing and overall experience. I chose this dataset because it interested me as I worked in a pizzeria for 5 years! I would like to further explore how different pizzerias are ranked in different areas. The link to this source is [Pizza](%5Bhttps://github.com/rfordatascience/tidytuesday/blob/master/data/2019/2019-10-01/pizza_barstool.csv). (<https://github.com/rfordatascience/tidytuesday/blob/master/data/2019/2019-10-01/pizza_barstool.csv>)
+The pizza barstool review dataset comprises customer reviews of many different pizzerias all throughout the USA. This dataset provides the name of the pizzeria, general aspects regarding location, and customer's reviews based on pricing and overall experience. I chose this dataset because it interested me as I worked in a pizzeria for 5 years! I would like to further explore how different pizzerias are ranked in different areas. The link to this source is [Pizza](<https://github.com/rfordatascience/tidytuesday/blob/master/data/2019/2019-10-01/pizza_barstool.csv>).
 
 ```{r read-examine-data}
 #reading in dataset
@@ -41,16 +41,16 @@ glimpse(pizza_barstool)
 
 ### Methods
 
-```{r question one}
+```{r question-one}
 pizza_barstool%>% #giving this dataset to ggplot
   ggplot()+ #about to make a plot
   aes(x=price_level)+ #specifying x axis
-  geom_bar(color= "black", fill="lightsteelblue1")+ #specifying type of plot, bins, color, and fill
+  geom_bar(color= "black", fill="lightsteelblue1")+ #specifying type of plot, color, and fill
   labs(x= "Price Level")+ #appropriate labeling and price level: 0= no $ (least expensive), 1=$, 2=$$, 3=$$$ (most expensive)+
   theme_minimal() #specifying theme 
 
-pizza_barstool%>%
-  count(price_level)
+pizza_barstool%>% #giving this dataset to next function
+  count(price_level) #counting number of times each price level appears- using this code to help answer question
 ```
 
 ### Answer
@@ -65,7 +65,7 @@ The number of pizzerias surveyed that are within each price level are as follows
 
 ### Methods
 
-```{r question two}
+```{r question-two}
 pizza_barstool%>% #giving this dataset to next function
   ggplot()+ #about to make a plot
   aes(x=latitude, y=longitude)+ #specifying x and y axis 
@@ -78,7 +78,7 @@ pizza_barstool%>% #giving this dataset to next function
 
 ### Answer
 
-There is a positive relationship between latitude and longitude of the given pizzerias.
+There is a positive relationship between latitude and longitude of the given pizzerias as shown with the trendline.
 
 <br><br>
 
@@ -88,12 +88,12 @@ There is a positive relationship between latitude and longitude of the given piz
 
 ### Methods
 
-```{r question three}
+```{r question-three}
 pizza_barstool%>% #giving this dataset to next function
   rename(critic_total_score= review_stats_critic_total_score)%>% #renaming column for easier use
-  filter(price_level %in% c("1","2"))%>% #keeping only price levels of 1 and 2 ******************
+  filter(price_level %in% c("1","2"))%>% #keeping only price levels of 1 and 2 
   ggplot()+ #about to make a plot
-  aes(x=price_level, y=critic_total_score)+ #specifying x and y axis
+  aes(x=as.factor(price_level), y=critic_total_score)+ #specifying x and y axis and treat x like a FACTOR
   geom_col(fill= "mediumspringgreen")+ #specifying type of plot and fill
   labs(x= "Price Level", y= "Critic Total Score")+ #appropriate labeling 
   theme_light() #indicating theme
@@ -102,7 +102,7 @@ pizza_barstool%>% #giving this dataset to next function
 
 ### Answer
 
-Price level of 2 did have a higher critic total score than compared to price level 1.
+Price level of 2 does have a higher critic total score than compared to price level 1 meaning that the professional critics of these pizzerias enjoyed the overall experience at a pizzeria that costed slightly more money. 
 
 <br><br>
 
@@ -112,16 +112,16 @@ Price level of 2 did have a higher critic total score than compared to price lev
 
 ### Methods
 
-```{r question four}
+```{r question-four}
 pizza_barstool%>% #giving this dataset to next function
   rename(dave_total_score= review_stats_dave_total_score)%>% #renaming column for easier use
   ggplot()+ #about to make a plot
   aes(x=dave_total_score)+ #specifying x axis
-  geom_histogram(fill= "mediumspringgreen", color= "black")+ #specifying type of plot and fill and color
+  geom_histogram(fill= "mediumspringgreen", color= "black", bins=20)+ #specifying type of plot and fill, color, and number of bins
   labs(x= "Dave's Total Score", y= "Count")+ #appropriate labeling 
   theme_bw() #indicating theme
 ```
 
 ### Answer
 
-The distribution of Dave's total score is skewed to the right.
+The distribution of Dave's total score is skewed to the right meaning that more people on Dave's barstool blog rated these pizzerias at a higher rating score rather than a lower rating score.
